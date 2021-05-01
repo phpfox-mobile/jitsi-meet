@@ -94,7 +94,7 @@ RCT_EXPORT_MODULE();
 
         audioCallConfig = [[RTCAudioSessionConfiguration alloc] init];
         audioCallConfig.category = AVAudioSessionCategoryPlayAndRecord;
-        audioCallConfig.categoryOptions = AVAudioSessionCategoryOptionAllowBluetooth | AVAudioSessionCategoryOptionDefaultToSpeaker;
+        audioCallConfig.categoryOptions = 0;
         audioCallConfig.mode = AVAudioSessionModeVoiceChat;
 
         videoCallConfig = [[RTCAudioSessionConfiguration alloc] init];
