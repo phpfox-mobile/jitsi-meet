@@ -130,6 +130,7 @@ class OverflowMenu extends PureComponent<Props, State> {
             visible: !showMore
         };
 
+        // Remove some options basing on phpFox Business not clearly
         return (
             <BottomSheet
                 onCancel = { this._onCancel }
@@ -139,7 +140,6 @@ class OverflowMenu extends PureComponent<Props, State> {
                 {!toolbarButtons.has('invite') && <InviteButton { ...buttonProps } />}
                 <AudioOnlyButton { ...buttonProps } />
                 {!toolbarButtons.has('raisehand') && <RaiseHandButton { ...buttonProps } />}
-                <SecurityDialogButton { ...buttonProps } />
                 <ScreenSharingButton { ...buttonProps } />
                 <MoreOptionsButton { ...moreOptionsButtonProps } />
                 <Collapsible collapsed = { !showMore }>
@@ -150,9 +150,6 @@ class OverflowMenu extends PureComponent<Props, State> {
                     <SharedVideoButton { ...buttonProps } />
                     <ClosedCaptionButton { ...buttonProps } />
                     <SharedDocumentButton { ...buttonProps } />
-                    <MuteEveryoneButton { ...buttonProps } />
-                    <MuteEveryonesVideoButton { ...buttonProps } />
-                    <HelpButton { ...buttonProps } />
                 </Collapsible>
             </BottomSheet>
         );
