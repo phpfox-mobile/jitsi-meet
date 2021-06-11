@@ -1,3 +1,4 @@
+include ':hermes'
 rootProject.name = 'jitsi-meet'
 
 include ':app', ':sdk'

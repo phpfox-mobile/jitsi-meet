@@ -26,9 +26,9 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactApplicationContext;
-import com.facebook.react.bridge.ReactContext;
+//import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.common.LifecycleState;
-import com.facebook.react.devsupport.DevInternalSettings;
+//import com.facebook.react.devsupport.DevInternalSettings;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.facebook.react.uimanager.ViewManager;
 import com.facebook.soloader.SoLoader;
@@ -226,11 +226,11 @@ class ReactInstanceManagerHolder {
                 .build();
 
         // Disable delta updates on Android, they have caused trouble.
-        DevInternalSettings devSettings
-            = (DevInternalSettings)reactInstanceManager.getDevSupportManager().getDevSettings();
-        if (devSettings != null) {
-            devSettings.setBundleDeltasEnabled(false);
-        }
+//        DevInternalSettings devSettings
+//            = (DevInternalSettings)reactInstanceManager.getDevSupportManager().getDevSettings();
+//        if (devSettings != null) {
+//            devSettings.setBundleDeltasEnabled(false);
+//        }
 
         // Register our uncaught exception handler.
         JitsiMeetUncaughtExceptionHandler.register();
