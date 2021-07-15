@@ -293,11 +293,12 @@ class Conference extends AbstractConference<Props, *> {
                     <LonelyMeetingExperience />
 
                     { _shouldDisplayTileView ? undefined : <Filmstrip /> }
-                    <Toolbox />
+                    { _shouldDisplayTileView ? undefined : <Toolbox /> }
                 </View>
 
 
                 <TestConnectionInfo />
+                { _shouldDisplayTileView ? <Toolbox /> : undefined }
 
                 { this._renderConferenceNotification() }
 
