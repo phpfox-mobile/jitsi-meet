@@ -140,6 +140,7 @@ class OverflowMenu extends PureComponent<Props, State> {
                 {!toolbarButtons.has('invite') && <InviteButton { ...buttonProps } />}
                 <AudioOnlyButton { ...buttonProps } />
                 {!toolbarButtons.has('raisehand') && <RaiseHandButton { ...buttonProps } />}
+                <ScreenSharingButton { ...buttonProps } />
                 <MoreOptionsButton { ...moreOptionsButtonProps } />
                 <Collapsible collapsed = { !showMore }>
                     {!toolbarButtons.has('togglecamera') && <ToggleCameraButton { ...buttonProps } />}
