@@ -144,9 +144,8 @@ function _updateAudioMode({ getState }, next, action) {
     if (getFeatureFlag(state, AUDIO_FOCUS_DISABLED, false)) {
         return result;
     } else if (conference) {
-        const startWithVideoMuted = getStartWithVideoMuted(state);
 
-        mode = audioOnly || startWithVideoMuted ? AudioMode.AUDIO_CALL : AudioMode.VIDEO_CALL;
+        mode = audioOnly ? AudioMode.AUDIO_CALL : AudioMode.VIDEO_CALL;
     } else {
         mode = AudioMode.DEFAULT;
     }
