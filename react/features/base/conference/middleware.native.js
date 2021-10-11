@@ -40,6 +40,7 @@ function _toggleScreenSharing(enabled, store) {
             _startScreenSharing(dispatch, state);
         }
     } else {
+        setPictureInPictureDisabled(false);
         dispatch(destroyLocalDesktopTrackIfExists());
     }
 }
