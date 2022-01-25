@@ -135,6 +135,10 @@
   NSLog(@"%@%@", @"Video muted changed: ", data[@"muted"]);
 }
 
+- (void)invitePeople:(NSDictionary *)data {
+  NSLog(@"Invite People ");
+}
+
 #pragma mark - Helpers
 
 - (void)terminate {

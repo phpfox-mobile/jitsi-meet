@@ -111,4 +111,6 @@
  */
 - (void)videoMutedChanged:(NSDictionary *)data;
 
+- (void)invitePeople:(NSDictionary *)data;
+
 @end
