@@ -27,7 +27,7 @@ import {
 } from '../../base/connection';
 import { JitsiConferenceEvents } from '../../base/lib-jitsi-meet';
 import { MEDIA_TYPE } from '../../base/media';
-import { SET_AUDIO_MUTED, SET_VIDEO_MUTED } from '../../base/media/actionTypes';
+import { SET_AUDIO_MUTED, SET_VIDEO_MUTED, INVITE_PEOPLE } from '../../base/media/actionTypes';
 import { PARTICIPANT_JOINED, PARTICIPANT_LEFT, getParticipants, getParticipantById } from '../../base/participants';
 import { MiddlewareRegistry, StateListenerRegistry } from '../../base/redux';
 import { toggleScreensharing } from '../../base/tracks';
@@ -217,6 +217,9 @@ MiddlewareRegistry.register(store => next => action => {
             /* data */ {
                 muted: action.muted
             });
+        break;
+    case INVITE_PEOPLE:
+        sendEvent(store, 'INVITE_PEOPLE', {});
         break;
     }
 
