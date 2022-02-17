@@ -112,5 +112,9 @@
 - (void)videoMutedChanged:(NSDictionary *)data;
 
 - (void)invitePeople:(NSDictionary *)data;
+/**
+ * Called when the SDK is ready to be closed. No meeting is happening at this point.
+ */
+- (void)readyToClose:(NSDictionary *)data;
 
 @end

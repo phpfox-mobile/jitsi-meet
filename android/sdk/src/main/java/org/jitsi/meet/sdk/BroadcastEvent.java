@@ -88,7 +88,7 @@ public class BroadcastEvent {
         CHAT_TOGGLED("org.jitsi.meet.CHAT_TOGGLED"),
         VIDEO_MUTED_CHANGED("org.jitsi.meet.VIDEO_MUTED_CHANGED"),
         INVITE_PEOPLE("org.jitsi.meet.INVITE_PEOPLE");
-
+        READY_TO_CLOSE("org.jitsi.meet.READY_TO_CLOSE");
 
         private static final String CONFERENCE_WILL_JOIN_NAME = "CONFERENCE_WILL_JOIN";
         private static final String CONFERENCE_JOINED_NAME = "CONFERENCE_JOINED";
@@ -103,6 +103,7 @@ public class BroadcastEvent {
         private static final String CHAT_TOGGLED_NAME = "CHAT_TOGGLED";
         private static final String VIDEO_MUTED_CHANGED_NAME = "VIDEO_MUTED_CHANGED";
         private static final String INVITE_PEOPLE_NAME = "INVITE_PEOPLE";
+        private static final String READY_TO_CLOSE_NAME = "READY_TO_CLOSE";
 
         private final String action;
 
@@ -151,6 +152,8 @@ public class BroadcastEvent {
                     return VIDEO_MUTED_CHANGED;
                 case INVITE_PEOPLE_NAME:
                     return INVITE_PEOPLE;
+                case READY_TO_CLOSE_NAME:
+                    return READY_TO_CLOSE;
             }
 
             return null;
