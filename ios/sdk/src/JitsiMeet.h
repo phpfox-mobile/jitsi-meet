@@ -53,6 +53,10 @@
   continueUserActivity:(NSUserActivity *_Nonnull)userActivity
     restorationHandler:(void (^_Nullable)(NSArray<id<UIUserActivityRestoring>> *_Nonnull))restorationHandler;
 
+-    (BOOL)application:(UIApplication *_Nonnull)application
+  continueUserActivity:(NSUserActivity *_Nonnull)userActivity
+               options:(JitsiMeetConferenceOptions *_Nonnull)options;
+
 - (BOOL)application:(UIApplication *_Nonnull)app
             openURL:(NSURL *_Nonnull)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *_Nonnull)options;
