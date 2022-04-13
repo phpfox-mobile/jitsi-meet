@@ -92,6 +92,43 @@
     return options && [JitsiMeetView setPropsInViews:[options asProps]];
 }
 
+-    (BOOL)application:(UIApplication *_Nonnull)application
+  continueUserActivity:(NSUserActivity *_Nonnull)userActivity
+               options:(JitsiMeetConferenceOptions *_Nonnull)options {
+    
+    NSNumber *falsy = [NSNumber numberWithBool:NO];
+    NSNumber *truthy = [NSNumber numberWithBool:YES];
+    
+    JitsiMeetConferenceOptions *optionsNew =[JitsiMeetConferenceOptions fromBuilder:^(JitsiMeetConferenceOptionsBuilder *builder) {
+        builder.audioOnly = false;
+        builder.room = options.room;
+        builder.subject = options.subject;
+        builder.userInfo = options.userInfo;
+        builder.welcomePageEnabled = NO;
+        builder.videoMuted = false;
+        builder.audioMuted = NO;
+
+        [builder.featureFlags setValue:falsy forKey:@"call-integration.enabled"];
+        [builder.featureFlags setValue:truthy forKey:@"video-share.enabled"];
+        [builder.featureFlags setValue:falsy forKey:@"pip.enabled"];
+
+        [builder.featureFlags setValue:falsy forKey:@"chat.enabled"];
+        [builder.featureFlags setValue:falsy forKey:@"welcomepage.enabled"];
+        [builder.featureFlags setValue:falsy forKey:@"kick-out.enabled"];
+        [builder.featureFlags setValue:falsy forKey:@"meeting-password.enabled"];
+        [builder.featureFlags setValue:falsy forKey:@"live-streaming.enabled"];
+        [builder.featureFlags setValue:falsy forKey:@"close-captions.enabled"];
+        [builder.featureFlags setValue:falsy forKey:@"add-people.enabled"];
+        [builder.featureFlags setValue:falsy forKey:@"recording.enabled"];
+        [builder.featureFlags setValue:falsy forKey:@"ios.recording.enabled"];
+        [builder.featureFlags setValue:falsy forKey:@"calendar.enabled"];
+        [builder.featureFlags setValue:falsy forKey:@"invite.enabled"];
+        [builder setFeatureFlag:@"video-mute.enabled" withBoolean: true];
+    }];
+    
+    return options && [JitsiMeetView setPropsInViews:[optionsNew asProps]];
+}
+
 - (BOOL)application:(UIApplication *)app
             openURL:(NSURL *)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
