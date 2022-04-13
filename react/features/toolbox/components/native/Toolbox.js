@@ -12,7 +12,7 @@ import { TileViewButton } from '../../../video-layout';
 import { isToolboxVisible, getMovableButtons } from '../../functions.native';
 import AudioMuteButton from '../AudioMuteButton';
 import HangupButton from '../HangupButton';
-import InvitePeopleButton from '../InvitePeopleButton';
+// import InvitePeopleButton from '../InvitePeopleButton';
 import VideoMuteButton from '../VideoMuteButton';
 
 import OverflowMenuButton from './OverflowMenuButton';
@@ -79,9 +79,9 @@ function Toolbox(props: Props) {
                 <AudioMuteButton
                     styles = { buttonStylesBorderless }
                     toggledStyles = { toggledButtonStyles } />
-                <InvitePeopleButton
-                    styles = { buttonStylesBorderless }
-                    toggledStyles = { toggledButtonStyles } />
+                {/*<InvitePeopleButton*/}
+                {/*    styles = { buttonStylesBorderless }*/}
+                {/*    toggledStyles = { toggledButtonStyles } />*/}
                 <VideoMuteButton
                     styles = { buttonStylesBorderless }
                     toggledStyles = { toggledButtonStyles } />
