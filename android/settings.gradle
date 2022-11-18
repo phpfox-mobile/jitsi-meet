@@ -25,8 +25,8 @@ include ':react-native-get-random-values'
 project(':react-native-get-random-values').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-get-random-values/android')
 include ':react-native-giphy'
 project(':react-native-giphy').projectDir = new File(rootProject.projectDir, '../node_modules/@giphy/react-native-sdk/android')
-include ':react-native-google-signin'
-project(':react-native-google-signin').projectDir = new File(rootProject.projectDir, '../node_modules/@react-native-google-signin/google-signin/android')
+// include ':react-native-google-signin'
+// project(':react-native-google-signin').projectDir = new File(rootProject.projectDir, '../node_modules/@react-native-google-signin/google-signin/android')
 include ':react-native-immersive'
 project(':react-native-immersive').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-immersive/android')
 include ':react-native-keep-awake'

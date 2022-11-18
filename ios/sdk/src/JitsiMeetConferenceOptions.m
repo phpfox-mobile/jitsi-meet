@@ -47,6 +47,10 @@
     _featureFlags[flag] = value;
 }
 
+- (void)setFeatureFlag:(NSDictionary *_Nonnull)featureFlags {
+    _featureFlags = [featureFlags mutableCopy];
+}
+
 - (void)setAudioOnly:(BOOL)audioOnly {
     [self setConfigOverride:@"startAudioOnly" withBoolean:audioOnly];
 }
