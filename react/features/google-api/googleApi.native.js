@@ -5,7 +5,7 @@ import { NativeModules } from 'react-native';
 let GoogleSignin;
 
 if (NativeModules.RNGoogleSignin) {
-    GoogleSignin = require('@react-native-google-signin/google-signin').GoogleSignin;
+    GoogleSignin = {};
 }
 
 import {

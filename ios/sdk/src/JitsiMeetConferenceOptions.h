@@ -46,8 +46,12 @@
  */
 @property (nonatomic, nullable) JitsiMeetUserInfo *userInfo;
 
+
+@property (nonatomic, copy, nullable, readonly) NSString *subject;
+
 - (void)setFeatureFlag:(NSString *_Nonnull)flag withBoolean:(BOOL)value;
 - (void)setFeatureFlag:(NSString *_Nonnull)flag withValue:(id _Nonnull)value;
+- (void)setFeatureFlag:(NSDictionary *_Nonnull)featureFlags;
 
 - (void)setConfigOverride:(NSString *_Nonnull)config withBoolean:(BOOL)value;
 - (void)setConfigOverride:(NSString *_Nonnull)config withValue:(id _Nonnull)value;
@@ -69,6 +73,8 @@
 
 @property (nonatomic, copy, nullable, readonly) NSString *room;
 @property (nonatomic, copy, nullable, readonly) NSString *token;
+
+@property (nonatomic, copy, nullable, readonly) NSString *subject;
 
 @property (nonatomic, readonly, nonnull) NSDictionary *featureFlags;
 

@@ -27,7 +27,7 @@
 #import "ScheenshareEventEmiter.h"
 
 #if !defined(JITSI_MEET_SDK_LITE)
-#import <RNGoogleSignin/RNGoogleSignin.h>
+//#import <RNGoogleSignin/RNGoogleSignin.h>
 #import "Dropbox.h"
 #endif
 
@@ -100,6 +100,48 @@
     return false;
 }
 
+-    (BOOL)application:(UIApplication *_Nonnull)application
+  continueUserActivity:(NSUserActivity *_Nonnull)userActivity
+               options:(JitsiMeetConferenceOptions *_Nonnull)options {
+    
+    JitsiMeetConferenceOptions *optionsNew =[JitsiMeetConferenceOptions fromBuilder:^(JitsiMeetConferenceOptionsBuilder *builder) {
+        builder.audioOnly = false;
+        builder.room = options.room;
+        builder.userInfo = options.userInfo;
+        builder.videoMuted = false;
+        builder.audioMuted = NO;
+        [builder setSubject:options.subject];
+        [builder setFeatureFlag: options.featureFlags];
+
+//        [builder.featureFlags setValue:falsy forKey:@"call-integration.enabled"];
+//        [builder.featureFlags setValue:truthy forKey:@"video-share.enabled"];
+//        [builder.featureFlags setValue:falsy forKey:@"pip.enabled"];
+//
+//        [builder.featureFlags setValue:falsy forKey:@"chat.enabled"];
+//        [builder.featureFlags setValue:falsy forKey:@"welcomepage.enabled"];
+//        [builder.featureFlags setValue:falsy forKey:@"kick-out.enabled"];
+//        [builder.featureFlags setValue:falsy forKey:@"meeting-password.enabled"];
+//        [builder.featureFlags setValue:falsy forKey:@"live-streaming.enabled"];
+//        [builder.featureFlags setValue:falsy forKey:@"close-captions.enabled"];
+//        [builder.featureFlags setValue:falsy forKey:@"add-people.enabled"];
+//        [builder.featureFlags setValue:falsy forKey:@"recording.enabled"];
+//        [builder.featureFlags setValue:falsy forKey:@"ios.recording.enabled"];
+//        [builder.featureFlags setValue:falsy forKey:@"calendar.enabled"];
+//        [builder.featureFlags setValue:falsy forKey:@"invite.enabled"];
+//        [builder setFeatureFlag:@"video-mute.enabled" withBoolean: true];
+//        [builder.featureFlags setValue:truthy forKey:@"ios.screensharing.enabled"];
+        
+    }];
+    
+    if(options){
+        [JitsiMeetView updateProps:[optionsNew asProps]];
+    }
+    
+    return TRUE;
+}
+
+
+
 - (BOOL)application:(UIApplication *)app
             openURL:(NSURL *)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
@@ -109,11 +151,11 @@
         return YES;
     }
 
-    if ([RNGoogleSignin application:app
-                            openURL:url
-                            options:options]) {
-        return YES;
-    }
+//    if ([RNGoogleSignin application:app
+//                            openURL:url
+//                            options:options]) {
+//        return YES;
+//    }
 #endif
 
     if (_customUrlScheme == nil || ![_customUrlScheme isEqualToString:url.scheme]) {
